@@ -20,8 +20,9 @@ public class FormTambahOrang extends javax.swing.JFrame {
     private int notelp;
     private String namaorg;
     private String alamat;
-    public FormTambahOrang() {
+    public FormTambahOrang(ControlOrang passctrlorang) {
         initComponents();
+        this.controlorang = passctrlorang;
     }
 
     /**
@@ -33,32 +34,33 @@ public class FormTambahOrang extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        namatextfield = new javax.swing.JTextField();
+        idtextfield = new javax.swing.JTextField();
+        norumahtextfield = new javax.swing.JTextField();
         buttontambah = new javax.swing.JButton();
         buttonback = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        notelptextfield = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        alamattextfield = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        namatextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                namatextfieldActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
+        norumahtextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                norumahtextfieldActionPerformed(evt);
+            }
+        });
 
         buttontambah.setText("Tambah");
         buttontambah.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,7 +87,11 @@ public class FormTambahOrang extends javax.swing.JFrame {
 
         jLabel3.setText("NoRumah");
 
-        jTextField4.setText("jTextField4");
+        notelptextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notelptextfieldActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("NoTelp");
 
@@ -93,7 +99,11 @@ public class FormTambahOrang extends javax.swing.JFrame {
 
         jLabel6.setText("Alamat");
 
-        jTextField5.setText("jTextField5");
+        alamattextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alamattextfieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,22 +118,28 @@ public class FormTambahOrang extends javax.swing.JFrame {
                             .addGap(87, 87, 87)
                             .addComponent(buttonback))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel4))
-                                .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1))
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabel6)
-                                    .addGap(13, 13, 13)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(jLabel3)))
+                            .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField3)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField5))))
+                                .addComponent(namatextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                .addComponent(idtextfield)
+                                .addComponent(norumahtextfield)
+                                .addComponent(notelptextfield)
+                                .addComponent(alamattextfield))))
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(226, Short.MAX_VALUE))
         );
@@ -133,26 +149,26 @@ public class FormTambahOrang extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(namatextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idtextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(norumahtextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(notelptextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                    .addComponent(alamattextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(168, 168, 168)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttontambah)
                     .addComponent(buttonback))
@@ -167,17 +183,45 @@ public class FormTambahOrang extends javax.swing.JFrame {
     }//GEN-LAST:event_buttontambahActionPerformed
 
     private void buttontambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttontambahMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:]
+        this.namaorg = namatextfield.getText();
+        this.norumah = Integer.parseInt(norumahtextfield.getText());
+        this.notelp = Integer.parseInt(notelptextfield.getText());
+        this.alamat = alamattextfield.getText();
+        this.idorg = Integer.parseInt(idtextfield.getText());
         controlorang.tambahOrang(this.idorg, this.norumah, this.notelp, this.alamat, this.namaorg);
+        System.out.print(this.namaorg);
+        namatextfield.setText("");
+        norumahtextfield.setText("");
+        notelptextfield.setText("");
+        idtextfield.setText("");
+        alamattextfield.setText("");        
     }//GEN-LAST:event_buttontambahMouseClicked
 
     private void buttonbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonbackMouseClicked
         // TODO add your handling code here:
+        this.dispose();        
     }//GEN-LAST:event_buttonbackMouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void namatextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namatextfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        this.namaorg = namatextfield.getText();
+    }//GEN-LAST:event_namatextfieldActionPerformed
+
+    private void norumahtextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_norumahtextfieldActionPerformed
+        // TODO add your handling code here:
+        this.norumah = Integer.parseInt(norumahtextfield.getText());
+    }//GEN-LAST:event_norumahtextfieldActionPerformed
+
+    private void notelptextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notelptextfieldActionPerformed
+        // TODO add your handling code here:
+        this.notelp = Integer.parseInt(notelptextfield.getText());
+    }//GEN-LAST:event_notelptextfieldActionPerformed
+
+    private void alamattextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alamattextfieldActionPerformed
+        // TODO add your handling code here:
+        this.alamat = alamattextfield.getText();
+    }//GEN-LAST:event_alamattextfieldActionPerformed
     public void empty()
     {
     }
@@ -211,24 +255,24 @@ public class FormTambahOrang extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormTambahOrang().setVisible(true);
+                //new FormTambahOrang().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField alamattextfield;
     private javax.swing.JButton buttonback;
     private javax.swing.JButton buttontambah;
+    private javax.swing.JTextField idtextfield;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField namatextfield;
+    private javax.swing.JTextField norumahtextfield;
+    private javax.swing.JTextField notelptextfield;
     // End of variables declaration//GEN-END:variables
 }

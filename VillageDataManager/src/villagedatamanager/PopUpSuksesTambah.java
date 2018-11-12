@@ -28,41 +28,21 @@ public class PopUpSuksesTambah extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonok = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        buttonok.setText("OK");
-        buttonok.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonokMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(buttonok)
-                .addContainerGap(215, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addComponent(buttonok)
-                .addGap(84, 84, 84))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void buttonokMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonokMouseClicked
-        // TODO add your handling code here:
-        this.ctrlorg.destroyMessage(this);
-    }//GEN-LAST:event_buttonokMouseClicked
 
     /**
      * @param args the command line arguments
@@ -100,6 +80,5 @@ public class PopUpSuksesTambah extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonok;
     // End of variables declaration//GEN-END:variables
 }

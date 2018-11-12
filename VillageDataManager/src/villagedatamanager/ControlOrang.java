@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package villagedatamanager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +17,9 @@ public class ControlOrang {
     
     public void tambahOrang(int id, int norumah, int notelp, String alamat, String nama)
     {
-        this.createMessage();
+        popupsuksestambah = new PopUpSuksesTambah();
+        JOptionPane.showMessageDialog(popupsuksestambah, "Berhasil ditambahkan");
+        System.out.print(id + " " + norumah);
     }
     public void tampilkanSemuaOrang()
     {
@@ -42,10 +45,13 @@ public class ControlOrang {
     public void createForm(int type)
     {
         //1 form tambah orang
+        
         if(type == 1)
         {
             //new form tambah orang
-            faddperson = new FormTambahOrang();
+            System.out.println("Open Form");
+            faddperson = new FormTambahOrang(this);
+            faddperson.setVisible(true);
         }
     }
     public void createMessage()

@@ -14,9 +14,10 @@ public class VillageDataManager {
     /**
      * @param args the command line arguments
      */
-    private HomeScreen homescreen;
+    //private HomeScreen homescreen;
     public static void main(String[] args) {
         // TODO code application logic here
+        
     }
     
 }

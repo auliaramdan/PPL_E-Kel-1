@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package villagedatamanager;
+import villagedatamanager.ControlOrang;
 
 /**
  *
@@ -14,8 +15,9 @@ public class HomeScreen extends javax.swing.JFrame {
     /**
      * Creates new form HomeScreen
      */
-    private ControlOrang ctrlorg;
-    private int option;
+    static private ControlOrang ctrlorg;
+    
+    private int option = 1;
     public HomeScreen() {
         initComponents();
     }
@@ -29,15 +31,18 @@ public class HomeScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton1 = new javax.swing.JRadioButton();
+        tambahorangbtn = new javax.swing.JRadioButton();
+        tambahorangbtn.setSelected(true);
         jButton1 = new javax.swing.JButton();
+        cariorangbtn = new javax.swing.JRadioButton();
+        lihatsemuaorang = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jRadioButton1.setText("Tambah Orang");
-        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tambahorangbtn.setText("Tambah Orang");
+        tambahorangbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioButton1MouseClicked(evt);
+                tambahorangbtnMouseClicked(evt);
             }
         });
 
@@ -48,6 +53,10 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        cariorangbtn.setText("Cari Orang");
+
+        lihatsemuaorang.setText("Lihat Semua Orang");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -55,16 +64,22 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lihatsemuaorang)
                     .addComponent(jButton1)
-                    .addComponent(jRadioButton1))
-                .addContainerGap(273, Short.MAX_VALUE))
+                    .addComponent(tambahorangbtn)
+                    .addComponent(cariorangbtn))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                .addComponent(tambahorangbtn)
+                .addGap(28, 28, 28)
+                .addComponent(cariorangbtn)
+                .addGap(27, 27, 27)
+                .addComponent(lihatsemuaorang)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(33, 33, 33))
         );
@@ -75,12 +90,13 @@ public class HomeScreen extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         this.ctrlorg.createForm(this.option);
+        System.out.print("Create Form");
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+    private void tambahorangbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahorangbtnMouseClicked
         // TODO add your handling code here:
         this.option = 1;
-    }//GEN-LAST:event_jRadioButton1MouseClicked
+    }//GEN-LAST:event_tambahorangbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -113,12 +129,15 @@ public class HomeScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HomeScreen().setVisible(true);
+                ctrlorg = new ControlOrang();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton cariorangbtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton lihatsemuaorang;
+    private javax.swing.JRadioButton tambahorangbtn;
     // End of variables declaration//GEN-END:variables
 }
