@@ -16,8 +16,18 @@ public class HomeScreen extends javax.swing.JFrame {
      * Creates new form HomeScreen
      */
     static private ControlOrang ctrlorg;
+    static private ControlRumah ctrlrumah;
     
     private int option = 1;
+    
+    /*
+    1 = Tambah orang
+    2 = Cari orang
+    3 = Lihat Semua Orang
+    4 = Tambah rumah
+    5 = Cari rumah
+    6 = Lihat semua rumah
+    */
     public HomeScreen() {
         initComponents();
     }
@@ -31,11 +41,27 @@ public class HomeScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
         tambahorangbtn = new javax.swing.JRadioButton();
         tambahorangbtn.setSelected(true);
-        jButton1 = new javax.swing.JButton();
+        donebtn = new javax.swing.JButton();
         cariorangbtn = new javax.swing.JRadioButton();
         lihatsemuaorang = new javax.swing.JRadioButton();
+        tambah_rumah = new javax.swing.JRadioButton();
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem2.setText("jRadioButtonMenuItem2");
+
+        jRadioButtonMenuItem3.setSelected(true);
+        jRadioButtonMenuItem3.setText("jRadioButtonMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,16 +72,23 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Done");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        donebtn.setText("Done");
+        donebtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                donebtnMouseClicked(evt);
             }
         });
 
         cariorangbtn.setText("Cari Orang");
 
         lihatsemuaorang.setText("Lihat Semua Orang");
+
+        tambah_rumah.setText("Tambah Rumah");
+        tambah_rumah.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tambah_rumahMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,39 +97,59 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lihatsemuaorang)
-                    .addComponent(jButton1)
-                    .addComponent(tambahorangbtn)
-                    .addComponent(cariorangbtn))
-                .addContainerGap(253, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lihatsemuaorang)
+                            .addComponent(donebtn)
+                            .addComponent(cariorangbtn))
+                        .addContainerGap(253, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tambahorangbtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tambah_rumah)
+                        .addGap(81, 81, 81))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(tambahorangbtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tambahorangbtn)
+                    .addComponent(tambah_rumah))
                 .addGap(28, 28, 28)
                 .addComponent(cariorangbtn)
                 .addGap(27, 27, 27)
                 .addComponent(lihatsemuaorang)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(donebtn)
                 .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void donebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donebtnMouseClicked
         // TODO add your handling code here:
-        this.ctrlorg.createForm(this.option);
-        System.out.print("Create Form");
-    }//GEN-LAST:event_jButton1MouseClicked
+        System.out.print(this.option);
+        if(this.option == 1 || this.option == 2 || this.option == 3) {
+            this.ctrlorg.createForm(this.option);
+            System.out.print("Create Form Orang");
+        }
+        else if(this.option == 4 || this.option == 5 || this.option == 6) {
+            this.ctrlrumah.createForm(this.option);
+            System.out.print("Create Form Rumah");
+        }
+        
+    }//GEN-LAST:event_donebtnMouseClicked
 
     private void tambahorangbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahorangbtnMouseClicked
         // TODO add your handling code here:
         this.option = 1;
     }//GEN-LAST:event_tambahorangbtnMouseClicked
+
+    private void tambah_rumahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambah_rumahMouseClicked
+        this.option = 4;
+    }//GEN-LAST:event_tambah_rumahMouseClicked
 
     /**
      * @param args the command line arguments
@@ -130,14 +183,22 @@ public class HomeScreen extends javax.swing.JFrame {
             public void run() {
                 new HomeScreen().setVisible(true);
                 ctrlorg = new ControlOrang();
+                ctrlrumah = new ControlRumah();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JRadioButton cariorangbtn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton donebtn;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     private javax.swing.JRadioButton lihatsemuaorang;
+    private javax.swing.JRadioButton tambah_rumah;
     private javax.swing.JRadioButton tambahorangbtn;
     // End of variables declaration//GEN-END:variables
 }

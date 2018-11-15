@@ -53,6 +53,12 @@ public class ControlOrang {
             faddperson = new FormTambahOrang(this);
             faddperson.setVisible(true);
         }
+        
+        
+        
+        
+        
+        
     }
     public void createMessage()
     {
