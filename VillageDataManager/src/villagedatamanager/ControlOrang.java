@@ -5,6 +5,8 @@
  */
 package villagedatamanager;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,6 +16,7 @@ public class ControlOrang {
     
     FormTambahOrang faddperson;
     PopUpSuksesTambah popupsuksestambah;
+    List orang = new ArrayList();
     
     public void tambahOrang(int id, int norumah, int notelp, String alamat, String nama)
     {

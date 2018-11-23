@@ -10,6 +10,14 @@ package villagedatamanager;
  * @author HP 14 - BS001TX
  */
 public class Orang {
+    
+    public Orang(String namaPass, int idPass, int norumahPass, String alamatPass, int  notelpPass) {
+        this.nama = namaPass;
+        this.ID = idPass;
+        this.norumah = norumahPass;
+        this.alamat = alamatPass;
+        this.notelp = notelpPass;
+    }
     private String nama;
     private int ID;
     private int norumah;
