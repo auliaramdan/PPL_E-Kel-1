@@ -10,12 +10,15 @@ package villagedatamanager;
  * @author HP 14 - BS001TX
  */
 public class VillageDataManager {
+    private static HomeScreen homescreen;
 
     /**
      * @param args the command line arguments
      */
     //private HomeScreen homescreen;
     public static void main(String[] args) {
+        homescreen = new HomeScreen();
+        homescreen.setVisible(true);
         // TODO code application logic here
         
     }

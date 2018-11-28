@@ -23,6 +23,7 @@ public class FormTambahOrang extends javax.swing.JFrame {
     public FormTambahOrang(ControlOrang passctrlorang) {
         initComponents();
         this.controlorang = passctrlorang;
+        
     }
 
     /**

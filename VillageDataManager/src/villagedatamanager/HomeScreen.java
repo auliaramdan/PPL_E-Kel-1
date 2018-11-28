@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package villagedatamanager;
-import villagedatamanager.ControlOrang;
 
 /**
  *
@@ -17,19 +16,14 @@ public class HomeScreen extends javax.swing.JFrame {
      */
     static private ControlOrang ctrlorg;
     static private ControlRumah ctrlrumah;
-    
-    private int option = 1;
-    
-    /*
-    1 = Tambah orang
-    2 = Cari orang
-    3 = Lihat Semua Orang
-    4 = Tambah rumah
-    5 = Cari rumah
-    6 = Lihat semua rumah
-    */
+        
     public HomeScreen() {
         initComponents();
+        ctrlorg = new ControlOrang();
+        ctrlrumah = new ControlRumah();
+        tambahorangbtn.setActionCommand("1");
+        lihatsemuaorang.setActionCommand("3");
+        tambah_rumah.setActionCommand("4");
     }
 
     /**
@@ -47,6 +41,12 @@ public class HomeScreen extends javax.swing.JFrame {
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
+        buttonGroup7 = new javax.swing.ButtonGroup();
+        buttonGroup8 = new javax.swing.ButtonGroup();
         tambahorangbtn = new javax.swing.JRadioButton();
         tambahorangbtn.setSelected(true);
         donebtn = new javax.swing.JButton();
@@ -63,14 +63,13 @@ public class HomeScreen extends javax.swing.JFrame {
         jRadioButtonMenuItem3.setSelected(true);
         jRadioButtonMenuItem3.setText("jRadioButtonMenuItem3");
 
+        jRadioButtonMenuItem4.setSelected(true);
+        jRadioButtonMenuItem4.setText("jRadioButtonMenuItem4");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        buttonGroup1.add(tambahorangbtn);
         tambahorangbtn.setText("Tambah Orang");
-        tambahorangbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tambahorangbtnMouseClicked(evt);
-            }
-        });
 
         donebtn.setText("Done");
         donebtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,16 +78,14 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(cariorangbtn);
         cariorangbtn.setText("Cari Orang");
 
+        buttonGroup1.add(lihatsemuaorang);
         lihatsemuaorang.setText("Lihat Semua Orang");
 
+        buttonGroup1.add(tambah_rumah);
         tambah_rumah.setText("Tambah Rumah");
-        tambah_rumah.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tambah_rumahMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,26 +127,30 @@ public class HomeScreen extends javax.swing.JFrame {
 
     private void donebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donebtnMouseClicked
         // TODO add your handling code here:
-        System.out.print(this.option);
-        if(this.option == 1 || this.option == 2 || this.option == 3) {
-            this.ctrlorg.createForm(this.option);
+         
+    /*
+    1 = Tambah orang
+    2 = Cari orang
+    3 = Lihat Semua Orang
+    4 = Tambah rumah
+    5 = Cari rumah
+    6 = Lihat semua rumah
+    */
+    
+        String command = buttonGroup1.getSelection().getActionCommand();
+        if(command.equals("1")) {
+            this.ctrlorg.createForm();
             System.out.print("Create Form Orang");
         }
-        else if(this.option == 4 || this.option == 5 || this.option == 6) {
-            this.ctrlrumah.createForm(this.option);
+        else if(command.equals("3")) {
+            this.ctrlorg.tampilkanSemuaOrang();
+        }
+        else if(command.equals("4")) {
+            this.ctrlrumah.createForm();
             System.out.print("Create Form Rumah");
         }
         
     }//GEN-LAST:event_donebtnMouseClicked
-
-    private void tambahorangbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahorangbtnMouseClicked
-        // TODO add your handling code here:
-        this.option = 1;
-    }//GEN-LAST:event_tambahorangbtnMouseClicked
-
-    private void tambah_rumahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambah_rumahMouseClicked
-        this.option = 4;
-    }//GEN-LAST:event_tambah_rumahMouseClicked
 
     /**
      * @param args the command line arguments
@@ -182,8 +183,8 @@ public class HomeScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HomeScreen().setVisible(true);
-                ctrlorg = new ControlOrang();
-                ctrlrumah = new ControlRumah();
+                //ctrlorg = new ControlOrang();
+                //ctrlrumah = new ControlRumah();
             }
         });
     }
@@ -192,11 +193,17 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
+    private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.JRadioButton cariorangbtn;
     private javax.swing.JButton donebtn;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
     private javax.swing.JRadioButton lihatsemuaorang;
     private javax.swing.JRadioButton tambah_rumah;
     private javax.swing.JRadioButton tambahorangbtn;

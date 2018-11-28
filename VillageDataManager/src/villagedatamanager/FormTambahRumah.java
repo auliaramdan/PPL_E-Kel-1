@@ -42,12 +42,12 @@ public class FormTambahRumah extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         tambahbtn = new javax.swing.JButton();
-        kembalibtn = new javax.swing.JButton();
         norumahtxt = new javax.swing.JTextField();
         namapemiliktxt = new javax.swing.JTextField();
         alamattxt = new javax.swing.JTextField();
         notelptxt = new javax.swing.JTextField();
         jmlhunitxt = new javax.swing.JTextField();
+        backbtn = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -75,16 +75,15 @@ public class FormTambahRumah extends javax.swing.JFrame {
             }
         });
 
-        kembalibtn.setText("Kembali");
-        kembalibtn.setToolTipText("");
-        kembalibtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        backbtn.setText("Kembali");
+        backbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kembalibtnMouseClicked(evt);
+                backbtnMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -92,23 +91,22 @@ public class FormTambahRumah extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tambahbtn)
-                        .addGap(76, 76, 76)
-                        .addComponent(kembalibtn))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(tambahbtn))
                         .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(norumahtxt)
-                            .addComponent(namapemiliktxt)
-                            .addComponent(alamattxt)
-                            .addComponent(notelptxt)
-                            .addComponent(jmlhunitxt, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backbtn)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(norumahtxt)
+                                .addComponent(namapemiliktxt)
+                                .addComponent(alamattxt)
+                                .addComponent(notelptxt)
+                                .addComponent(jmlhunitxt, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -142,7 +140,7 @@ public class FormTambahRumah extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tambahbtn)
-                    .addComponent(kembalibtn))
+                    .addComponent(backbtn))
                 .addGap(43, 43, 43))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -163,13 +161,16 @@ public class FormTambahRumah extends javax.swing.JFrame {
         jmlhunitxt.setText("");
     }//GEN-LAST:event_tambahbtnMouseClicked
 
-    private void kembalibtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kembalibtnMouseClicked
+    private void backbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbtnMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_kembalibtnMouseClicked
+        System.out.print("Is Disposing");
+        //this.dispose();
+    }//GEN-LAST:event_backbtnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamattxt;
+    private javax.swing.JButton backbtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -179,7 +180,6 @@ public class FormTambahRumah extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JTextField jmlhunitxt;
-    private javax.swing.JButton kembalibtn;
     private javax.swing.JTextField namapemiliktxt;
     private javax.swing.JTextField norumahtxt;
     private javax.swing.JTextField notelptxt;

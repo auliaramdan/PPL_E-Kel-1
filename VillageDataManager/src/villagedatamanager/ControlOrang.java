@@ -7,7 +7,6 @@ package villagedatamanager;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  *
  * @author HP 14 - BS001TX
@@ -16,7 +15,14 @@ public class ControlOrang {
     
     FormTambahOrang faddperson;
     PopUpSuksesTambah popupsuksestambah;
-    List orang = new ArrayList();
+    DatabaseDummy databasedummy;
+    ViewAllTable viewalltable;
+    
+    public ControlOrang() {
+        System.out.print("Constructed");
+        databasedummy = new DatabaseDummy();
+        viewalltable = new ViewAllTable(this);
+    }
     
     public void tambahOrang(int id, int norumah, int notelp, String alamat, String nama)
     {
@@ -25,7 +31,8 @@ public class ControlOrang {
         System.out.print(id + " " + norumah);
     }
     public void tampilkanSemuaOrang()
-    {
+    {        
+        viewalltable.setVisible(true);
     }
     public void cariOrangID()
     {
@@ -45,23 +52,13 @@ public class ControlOrang {
     public void deleteOrang()
     {
     }
-    public void createForm(int type)
+    public void createForm()
     {
-        //1 form tambah orang
-        
-        if(type == 1)
-        {
+
             //new form tambah orang
             System.out.println("Open Form");
             faddperson = new FormTambahOrang(this);
             faddperson.setVisible(true);
-        }
-        
-        
-        
-        
-        
-        
     }
     public void createMessage()
     {
@@ -75,4 +72,9 @@ public class ControlOrang {
         a.dispose();
         this.faddperson.empty();
     }
+    
+    public List<Orang> loadData() {
+        return databasedummy.getTable();
+    }
+    
 }

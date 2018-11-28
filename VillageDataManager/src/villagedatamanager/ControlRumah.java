@@ -34,13 +34,12 @@ public class ControlRumah {
     public void deleteRumah()
     {
     }
-    public void createForm(int type)
+    public void createForm()
     {
-        if(type == 4) {
             System.out.println("Open Form");
             faddhome = new FormTambahRumahReal(this);
             faddhome.setVisible(true);
-    }
+    
     }
     public void createMessage()
     {

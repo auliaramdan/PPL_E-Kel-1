@@ -23,4 +23,24 @@ public class Orang {
     private int norumah;
     private String alamat;
     private int notelp;
+    
+    public String getNama() {
+     return nama;   
+    }
+    
+    public int getID() {
+     return ID;   
+    }
+    
+    public int getNoRumah() {
+     return norumah;   
+    }
+    
+    public String getAlamat() {
+     return alamat;   
+    }
+    
+    public int getNoTelp() {
+     return notelp;   
+    }
 }

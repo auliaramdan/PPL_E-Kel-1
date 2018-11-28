@@ -4,17 +4,23 @@
  * and open the template in the editor.
  */
 package villagedatamanager;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author AdminIGS
  */
 public class ViewAllTable extends javax.swing.JFrame {
+    
+    ControlOrang ctrl;
 
     /**
      * Creates new form ViewAllTable
+     * @param ctrlpass
      */
-    public ViewAllTable() {
+    public ViewAllTable(ControlOrang ctrlpass) {
+        ctrl = ctrlpass;
         initComponents();
     }
 
@@ -28,16 +34,14 @@ public class ViewAllTable extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        viewall = new javax.swing.JTable();
+        reloadBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        viewall.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Nama", "ID", "Alamat", "No. Rumah", "No. Telp"
@@ -51,26 +55,51 @@ public class ViewAllTable extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(viewall);
+
+        reloadBtn.setText("View All");
+        reloadBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reloadBtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(264, 264, 264)
+                .addComponent(reloadBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(reloadBtn)
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void reloadBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reloadBtnMouseClicked
+        // TODO add your handling code here:
+        List<Orang> data = ctrl.loadData();
+        DefaultTableModel dtm = (DefaultTableModel) viewall.getModel();
+        for(Orang datum : data) {
+         Object obj[] = {datum.getNama(), datum.getID(), datum.getAlamat(), datum.getNoRumah(), datum.getNoTelp()};
+         
+         dtm.addRow(obj);   
+        }
+    }//GEN-LAST:event_reloadBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -102,13 +131,14 @@ public class ViewAllTable extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewAllTable().setVisible(true);
+                //new ViewAllTable().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton reloadBtn;
+    private javax.swing.JTable viewall;
     // End of variables declaration//GEN-END:variables
 }
