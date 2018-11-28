@@ -22,8 +22,11 @@ public class HomeScreen extends javax.swing.JFrame {
         ctrlorg = new ControlOrang();
         ctrlrumah = new ControlRumah();
         tambahorangbtn.setActionCommand("1");
-        lihatsemuaorang.setActionCommand("3");
-        tambah_rumah.setActionCommand("4");
+        cariorangbtn.setActionCommand("2");
+        lihatsemuaorangbtn.setActionCommand("3");
+        tambahrumahbtn.setActionCommand("4");
+        carirumahbtn.setActionCommand("5");
+        lihatsemuarumahbtn.setActionCommand("6");
     }
 
     /**
@@ -47,12 +50,16 @@ public class HomeScreen extends javax.swing.JFrame {
         jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
         buttonGroup7 = new javax.swing.ButtonGroup();
         buttonGroup8 = new javax.swing.ButtonGroup();
+        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
+        tambah_rumah1 = new javax.swing.JRadioButton();
         tambahorangbtn = new javax.swing.JRadioButton();
         tambahorangbtn.setSelected(true);
         donebtn = new javax.swing.JButton();
         cariorangbtn = new javax.swing.JRadioButton();
-        lihatsemuaorang = new javax.swing.JRadioButton();
-        tambah_rumah = new javax.swing.JRadioButton();
+        lihatsemuaorangbtn = new javax.swing.JRadioButton();
+        tambahrumahbtn = new javax.swing.JRadioButton();
+        carirumahbtn = new javax.swing.JRadioButton();
+        lihatsemuarumahbtn = new javax.swing.JRadioButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -65,6 +72,12 @@ public class HomeScreen extends javax.swing.JFrame {
 
         jRadioButtonMenuItem4.setSelected(true);
         jRadioButtonMenuItem4.setText("jRadioButtonMenuItem4");
+
+        jRadioButtonMenuItem5.setSelected(true);
+        jRadioButtonMenuItem5.setText("jRadioButtonMenuItem5");
+
+        buttonGroup1.add(tambah_rumah1);
+        tambah_rumah1.setText("Tambah Rumah");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,11 +94,17 @@ public class HomeScreen extends javax.swing.JFrame {
         buttonGroup1.add(cariorangbtn);
         cariorangbtn.setText("Cari Orang");
 
-        buttonGroup1.add(lihatsemuaorang);
-        lihatsemuaorang.setText("Lihat Semua Orang");
+        buttonGroup1.add(lihatsemuaorangbtn);
+        lihatsemuaorangbtn.setText("Lihat Semua Orang");
 
-        buttonGroup1.add(tambah_rumah);
-        tambah_rumah.setText("Tambah Rumah");
+        buttonGroup1.add(tambahrumahbtn);
+        tambahrumahbtn.setText("Tambah Rumah");
+
+        buttonGroup1.add(carirumahbtn);
+        carirumahbtn.setText("Cari Rumah");
+
+        buttonGroup1.add(lihatsemuarumahbtn);
+        lihatsemuarumahbtn.setText("Lihat Semua Rumah");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,15 +114,18 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(donebtn)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lihatsemuaorang)
-                            .addComponent(donebtn)
+                            .addComponent(tambahorangbtn)
+                            .addComponent(lihatsemuaorangbtn)
                             .addComponent(cariorangbtn))
-                        .addContainerGap(253, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tambahorangbtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tambah_rumah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(carirumahbtn)
+                            .addComponent(lihatsemuarumahbtn)
+                            .addComponent(tambahrumahbtn))
                         .addGap(81, 81, 81))))
         );
         layout.setVerticalGroup(
@@ -112,12 +134,16 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tambahorangbtn)
-                    .addComponent(tambah_rumah))
-                .addGap(28, 28, 28)
-                .addComponent(cariorangbtn)
-                .addGap(27, 27, 27)
-                .addComponent(lihatsemuaorang)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                    .addComponent(tambahrumahbtn))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cariorangbtn)
+                    .addComponent(carirumahbtn))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lihatsemuaorangbtn)
+                    .addComponent(lihatsemuarumahbtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(donebtn)
                 .addGap(33, 33, 33))
         );
@@ -148,6 +174,9 @@ public class HomeScreen extends javax.swing.JFrame {
         else if(command.equals("4")) {
             this.ctrlrumah.createForm();
             System.out.print("Create Form Rumah");
+        }
+        else if(command.equals("6")) {
+            this.ctrlrumah.tampilkanSemuaRumah();
         }
         
     }//GEN-LAST:event_donebtnMouseClicked
@@ -199,13 +228,17 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.JRadioButton cariorangbtn;
+    private javax.swing.JRadioButton carirumahbtn;
     private javax.swing.JButton donebtn;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
-    private javax.swing.JRadioButton lihatsemuaorang;
-    private javax.swing.JRadioButton tambah_rumah;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
+    private javax.swing.JRadioButton lihatsemuaorangbtn;
+    private javax.swing.JRadioButton lihatsemuarumahbtn;
+    private javax.swing.JRadioButton tambah_rumah1;
     private javax.swing.JRadioButton tambahorangbtn;
+    private javax.swing.JRadioButton tambahrumahbtn;
     // End of variables declaration//GEN-END:variables
 }

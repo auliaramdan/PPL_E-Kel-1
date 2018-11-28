@@ -42,6 +42,20 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup8">
     </Component>
+    <Component class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem5">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="jRadioButtonMenuItem5"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="tambah_rumah1">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Tambah Rumah"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -69,17 +83,21 @@
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lihatsemuaorang" min="-2" max="-2" attributes="0"/>
-                          <Component id="donebtn" min="-2" max="-2" attributes="0"/>
-                          <Component id="cariorangbtn" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="253" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="tambahorangbtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="donebtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="tambah_rumah" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tambahorangbtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lihatsemuaorangbtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="cariorangbtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="carirumahbtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="lihatsemuarumahbtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="tambahrumahbtn" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -92,13 +110,19 @@
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tambahorangbtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tambah_rumah" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tambahrumahbtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="cariorangbtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="lihatsemuaorang" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="97" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cariorangbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="carirumahbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lihatsemuaorangbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lihatsemuarumahbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="75" max="32767" attributes="0"/>
               <Component id="donebtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
@@ -133,7 +157,7 @@
         <Property name="text" type="java.lang.String" value="Cari Orang"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="lihatsemuaorang">
+    <Component class="javax.swing.JRadioButton" name="lihatsemuaorangbtn">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -141,12 +165,28 @@
         <Property name="text" type="java.lang.String" value="Lihat Semua Orang"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="tambah_rumah">
+    <Component class="javax.swing.JRadioButton" name="tambahrumahbtn">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tambah Rumah"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="carirumahbtn">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cari Rumah"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="lihatsemuarumahbtn">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Lihat Semua Rumah"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -15,7 +15,7 @@ public class ControlOrang {
     
     FormTambahOrang faddperson;
     PopUpSuksesTambah popupsuksestambah;
-    DatabaseDummy databasedummy;
+    private static DatabaseDummy databasedummy;
     ViewAllTable viewalltable;
     
     public ControlOrang() {
@@ -29,6 +29,7 @@ public class ControlOrang {
         popupsuksestambah = new PopUpSuksesTambah();
         JOptionPane.showMessageDialog(popupsuksestambah, "Berhasil ditambahkan");
         System.out.print(id + " " + norumah);
+        databasedummy.tambahOrang(id, norumah, notelp, alamat, nama);
     }
     public void tampilkanSemuaOrang()
     {        
@@ -54,11 +55,10 @@ public class ControlOrang {
     }
     public void createForm()
     {
-
-            //new form tambah orang
-            System.out.println("Open Form");
-            faddperson = new FormTambahOrang(this);
-            faddperson.setVisible(true);
+        //new form tambah orang
+        System.out.println("Open Form");
+        faddperson = new FormTambahOrang(this);
+        faddperson.setVisible(true);
     }
     public void createMessage()
     {
@@ -74,7 +74,7 @@ public class ControlOrang {
     }
     
     public List<Orang> loadData() {
-        return databasedummy.getTable();
+        return databasedummy.getTableOrang();
     }
     
 }
