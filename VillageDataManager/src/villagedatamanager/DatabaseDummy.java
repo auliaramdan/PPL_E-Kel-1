@@ -16,7 +16,7 @@ public class DatabaseDummy {
         List<Rumah> rumah = new ArrayList<Rumah>();
         
         public DatabaseDummy() {
-            orang.add(new Orang("Ramdan", 42, 70, "Lab IGS", 12));
+            orang.add(new Orang("Ramdan", 42, 70, "Lab IGS", "12"));
             rumah.add(new Rumah("Ramdan", 70, "Lab IGS", 12, 2));
         }
         
@@ -29,11 +29,47 @@ public class DatabaseDummy {
             return rumah;
         }
         
-        public void tambahOrang(int id, int norumah, int notelp, String alamat, String nama) {
+        public void tambahOrang(int id, int norumah, String notelp, String alamat, String nama) {
             orang.add(new Orang(nama, id, norumah, alamat, notelp));
         }
         
         public void tambahRumah(int norumah, int notelp, String alamat, String namapemilik, int jmlhuni) {
             rumah.add(new Rumah(namapemilik, norumah, alamat, notelp, jmlhuni));
+        }
+        public Orang cariOrangId(int searchnum)
+        {
+            for (Orang orang1 : orang) {
+                if(orang1.getID() == searchnum){
+                    return orang1;
+                }
+            }
+            return null;
+        }
+        public Orang cariOrangMobile(String searchmob)
+        {
+            for (Orang orang1 : orang) {
+                if(orang1.getNoTelp().equals(searchmob)){
+                    return orang1;
+                }
+            }
+            return null;
+        }
+        public Orang cariOrangNoRumah(int searchnum)
+        {
+            for (Orang orang1 : orang) {
+                if(orang1.getNoRumah() == searchnum){
+                    return orang1;
+                }
+            }
+            return null;
+        }
+        public Orang cariOrangNama(String searchname)
+        {
+            for (Orang orang1 : orang) {
+                if(orang1.getNama().equals(searchname)){
+                    return orang1;
+                }
+            }
+            return null;
         }
 }

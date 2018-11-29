@@ -17,6 +17,10 @@ public class ControlOrang {
     PopUpSuksesTambah popupsuksestambah;
     private static DatabaseDummy databasedummy;
     ViewAllTable viewalltable;
+    MenuSearchOrang msearchorg;
+    ViewSearchPersonMobile vsmobile;
+    ViewSearchPersonName vsname;
+    ViewSearchPersonHouseNum vshnum;
     
     public ControlOrang() {
         System.out.print("Constructed");
@@ -24,7 +28,7 @@ public class ControlOrang {
         viewalltable = new ViewAllTable(this);
     }
     
-    public void tambahOrang(int id, int norumah, int notelp, String alamat, String nama)
+    public void tambahOrang(int id, int norumah, String notelp, String alamat, String nama)
     {
         popupsuksestambah = new PopUpSuksesTambah();
         JOptionPane.showMessageDialog(popupsuksestambah, "Berhasil ditambahkan");
@@ -35,17 +39,38 @@ public class ControlOrang {
     {        
         viewalltable.setVisible(true);
     }
-    public void cariOrangID()
+    public Orang cariOrangID(int searcharg)
     {
+        return databasedummy.cariOrangId(searcharg);
     }
-    public void cariOrangNama()
+    public Orang cariOrangNama(String searcharg)
     {
+        return databasedummy.cariOrangNama(searcharg);
     }
-    public void cariOrangNoTelp()
+    public Orang cariOrangNoTelp(String searcharg)
     {
+        return databasedummy.cariOrangMobile(searcharg);
     }
     public void cariOrangRumah()
     {
+    }
+    public void createFormSearchID()
+    {
+    }
+    public void createFormSearchMobile()
+    {
+        this.vsmobile = new ViewSearchPersonMobile(this);
+        this.vsmobile.setVisible(true);
+    }
+    public void createFormSearchName()
+    {
+        this.vsname = new ViewSearchPersonName(this);
+        this.vsname.setVisible(true);
+    }
+    public void createFormSearchHome()
+    {
+       // this.vshnum = new ViewSearchPersonHouseNum(this);
+        this.vshnum.setVisible(true);
     }
     public void editOrang()
     {
@@ -75,6 +100,11 @@ public class ControlOrang {
     
     public List<Orang> loadData() {
         return databasedummy.getTableOrang();
+    }
+    public void showSearchMenu()
+    {
+        this.msearchorg = new MenuSearchOrang(this);
+        this.msearchorg.setVisible(true);
     }
     
 }

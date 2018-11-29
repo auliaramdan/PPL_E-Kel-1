@@ -17,7 +17,7 @@ public class FormTambahOrang extends javax.swing.JFrame {
     private ControlOrang controlorang;
     private int idorg;
     private int norumah;
-    private int notelp;
+    private String notelp;
     private String namaorg;
     private String alamat;
     public FormTambahOrang(ControlOrang passctrlorang) {
@@ -187,7 +187,7 @@ public class FormTambahOrang extends javax.swing.JFrame {
         // TODO add your handling code here:]
         this.namaorg = namatextfield.getText();
         this.norumah = Integer.parseInt(norumahtextfield.getText());
-        this.notelp = Integer.parseInt(notelptextfield.getText());
+        this.notelp = notelptextfield.getText();
         this.alamat = alamattextfield.getText();
         this.idorg = Integer.parseInt(idtextfield.getText());
         controlorang.tambahOrang(this.idorg, this.norumah, this.notelp, this.alamat, this.namaorg);
@@ -216,7 +216,7 @@ public class FormTambahOrang extends javax.swing.JFrame {
 
     private void notelptextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notelptextfieldActionPerformed
         // TODO add your handling code here:
-        this.notelp = Integer.parseInt(notelptextfield.getText());
+        this.notelp = notelptextfield.getText();
     }//GEN-LAST:event_notelptextfieldActionPerformed
 
     private void alamattextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alamattextfieldActionPerformed

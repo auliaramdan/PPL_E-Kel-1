@@ -168,6 +168,9 @@ public class HomeScreen extends javax.swing.JFrame {
             this.ctrlorg.createForm();
             System.out.print("Create Form Orang");
         }
+        else if(command.equals("2")) {
+            this.ctrlorg.showSearchMenu();
+        }
         else if(command.equals("3")) {
             this.ctrlorg.tampilkanSemuaOrang();
         }

@@ -11,7 +11,7 @@ package villagedatamanager;
  */
 public class Orang {
     
-    public Orang(String namaPass, int idPass, int norumahPass, String alamatPass, int  notelpPass) {
+    public Orang(String namaPass, int idPass, int norumahPass, String alamatPass, String  notelpPass) {
         this.nama = namaPass;
         this.ID = idPass;
         this.norumah = norumahPass;
@@ -22,7 +22,7 @@ public class Orang {
     private int ID;
     private int norumah;
     private String alamat;
-    private int notelp;
+    private String notelp;
     
     public String getNama() {
      return nama;   
@@ -40,7 +40,7 @@ public class Orang {
      return alamat;   
     }
     
-    public int getNoTelp() {
+    public String getNoTelp() {
      return notelp;   
     }
 }
