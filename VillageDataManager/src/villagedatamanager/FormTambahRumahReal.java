@@ -69,6 +69,11 @@ public class FormTambahRumahReal extends javax.swing.JFrame {
         });
 
         jButton2.setText("Kembali");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,6 +155,11 @@ public class FormTambahRumahReal extends javax.swing.JFrame {
         alamattxt.setText("");
         jmlhunitxt.setText("");
     }//GEN-LAST:event_tambahbtnMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments

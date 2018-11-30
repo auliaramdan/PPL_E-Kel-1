@@ -52,6 +52,7 @@ public class HomeScreen extends javax.swing.JFrame {
         buttonGroup8 = new javax.swing.ButtonGroup();
         jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
         tambah_rumah1 = new javax.swing.JRadioButton();
+        buttonGroup9 = new javax.swing.ButtonGroup();
         tambahorangbtn = new javax.swing.JRadioButton();
         tambahorangbtn.setSelected(true);
         donebtn = new javax.swing.JButton();
@@ -165,7 +166,7 @@ public class HomeScreen extends javax.swing.JFrame {
     
         String command = buttonGroup1.getSelection().getActionCommand();
         if(command.equals("1")) {
-            this.ctrlorg.createForm();
+            this.ctrlorg.tambahOrang();
             System.out.print("Create Form Orang");
         }
         else if(command.equals("2")) {
@@ -230,6 +231,7 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.ButtonGroup buttonGroup8;
+    private javax.swing.ButtonGroup buttonGroup9;
     private javax.swing.JRadioButton cariorangbtn;
     private javax.swing.JRadioButton carirumahbtn;
     private javax.swing.JButton donebtn;

@@ -62,7 +62,7 @@ public class ControlOrang {
         this.vsmobile = new ViewSearchPersonMobile(this);
         this.vsmobile.setVisible(true);
     }
-    public void createFormSearchName()
+    public void createFormSearchName() //Pakai B Indonesia
     {
         this.vsname = new ViewSearchPersonName(this);
         this.vsname.setVisible(true);
@@ -78,7 +78,7 @@ public class ControlOrang {
     public void deleteOrang()
     {
     }
-    public void createForm()
+    public void tambahOrang()
     {
         //new form tambah orang
         System.out.println("Open Form");

@@ -36,6 +36,7 @@ public class ViewAllTable extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         viewall = new javax.swing.JTable();
         reloadBtn = new javax.swing.JButton();
+        backbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,13 @@ public class ViewAllTable extends javax.swing.JFrame {
             }
         });
 
+        backbtn.setText("Back");
+        backbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backbtnMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,6 +83,8 @@ public class ViewAllTable extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(264, 264, 264)
                 .addComponent(reloadBtn)
+                .addGap(127, 127, 127)
+                .addComponent(backbtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -83,7 +93,9 @@ public class ViewAllTable extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(reloadBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reloadBtn)
+                    .addComponent(backbtn))
                 .addGap(33, 33, 33))
         );
 
@@ -100,6 +112,11 @@ public class ViewAllTable extends javax.swing.JFrame {
          dtm.addRow(obj);   
         }
     }//GEN-LAST:event_reloadBtnMouseClicked
+
+    private void backbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbtnMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_backbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -137,6 +154,7 @@ public class ViewAllTable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backbtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton reloadBtn;
     private javax.swing.JTable viewall;
