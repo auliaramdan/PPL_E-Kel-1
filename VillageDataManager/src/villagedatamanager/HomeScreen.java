@@ -179,6 +179,9 @@ public class HomeScreen extends javax.swing.JFrame {
             this.ctrlrumah.createForm();
             System.out.print("Create Form Rumah");
         }
+        else if(command.equals("5")) {
+            this.ctrlrumah.showMenuSearchRumah();
+        }
         else if(command.equals("6")) {
             this.ctrlrumah.tampilkanSemuaRumah();
         }

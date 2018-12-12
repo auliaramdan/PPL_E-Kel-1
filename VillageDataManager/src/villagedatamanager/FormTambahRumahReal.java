@@ -11,8 +11,8 @@ package villagedatamanager;
  */
 public class FormTambahRumahReal extends javax.swing.JFrame {
 
-    private int norumah, notelp, jmlhuni;
-    private String namapemilik, alamat;
+    private int norumah, jmlhuni;
+    private String namapemilik, alamat, notelp;
     private ControlRumah ctrlrumah;
     /**
      * Creates new form FormTambahRumahReal
@@ -144,7 +144,7 @@ public class FormTambahRumahReal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.namapemilik = namapemiliktxt.getText();
         this.norumah = Integer.parseInt(norumahtxt.getText());
-        this.notelp = Integer.parseInt(notelptxt.getText());
+        this.notelp = notelptxt.getText();
         this.alamat = alamattxt.getText();
         this.jmlhuni = Integer.parseInt(jmlhunitxt.getText());
         this.ctrlrumah.tambahRumah(this.norumah, this.notelp, this.alamat, this.namapemilik, this.jmlhuni);

@@ -6,6 +6,8 @@
 
 package villagedatamanager;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP 14 - BS001TX
@@ -13,8 +15,11 @@ package villagedatamanager;
 public class ViewSearchHouseByOwner extends javax.swing.JFrame {
 
     /** Creates new form ViewSearchHouseByOwner */
-    public ViewSearchHouseByOwner() {
+    ControlRumah ctrlrmh;
+    String searcharg;
+    public ViewSearchHouseByOwner(ControlRumah a) {
         initComponents();
+        ctrlrmh = a;
     }
 
     /** This method is called from within the constructor to
@@ -26,21 +31,91 @@ public class ViewSearchHouseByOwner extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        searchinput = new javax.swing.JTextField();
+        searchbtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablesearch = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        searchbtn.setText("Search");
+        searchbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchbtnMouseClicked(evt);
+            }
+        });
+
+        tablesearch.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "nama pemilik", "no rumah", "alamat", "jumlah penghuni", "no telp"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablesearch);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(searchinput, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchbtn)
+                .addGap(33, 33, 33))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchbtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbtnMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel dtm = (DefaultTableModel) tablesearch.getModel();
+        int rowcount = dtm.getRowCount();
+        if(rowcount>0)
+        {
+            dtm.setRowCount(0);
+        }
+        this.searcharg =  this.searchinput.getText();
+        System.out.print(searcharg);
+        System.out.print("gonna search");
+        Rumah toview = this.ctrlrmh.cariRumahPemilik(searcharg);
+        System.out.print("returned");
+        if(toview == null)
+        {
+            ctrlrmh.createMessage("Data Tidak Ditemukan");
+        }
+        else
+        {
+            Object obj[] = {toview.getNama(), toview.getNoRumah(), toview.getAlamat(), toview.getJmlPenghuni(), toview.getNoTelp()};
+            dtm.addRow(obj);
+        }
+    }//GEN-LAST:event_searchbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -72,12 +147,15 @@ public class ViewSearchHouseByOwner extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewSearchHouseByOwner().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton searchbtn;
+    private javax.swing.JTextField searchinput;
+    private javax.swing.JTable tablesearch;
     // End of variables declaration//GEN-END:variables
 
 }

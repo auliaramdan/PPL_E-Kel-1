@@ -14,7 +14,9 @@ public class MenuSearchRumah extends javax.swing.JFrame {
     /**
      * Creates new form MenuSearchRumah
      */
-    public MenuSearchRumah() {
+    ControlRumah ctrlrmh;
+    public MenuSearchRumah(ControlRumah a) {
+        this.ctrlrmh = a;
         initComponents();
     }
 
@@ -27,21 +29,67 @@ public class MenuSearchRumah extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        homenum = new javax.swing.JButton();
+        owner = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        homenum.setText("Search By Home Number");
+        homenum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homenumMouseClicked(evt);
+            }
+        });
+
+        owner.setText("Search By Owner Name");
+        owner.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ownerMouseClicked(evt);
+            }
+        });
+        owner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ownerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(owner)
+                    .addComponent(homenum))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(homenum)
+                .addGap(77, 77, 77)
+                .addComponent(owner)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ownerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ownerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ownerActionPerformed
+
+    private void homenumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homenumMouseClicked
+        // TODO add your handling code here:
+        this.ctrlrmh.createFormCariRumahNomor();
+    }//GEN-LAST:event_homenumMouseClicked
+
+    private void ownerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ownerMouseClicked
+        // TODO add your handling code here:
+        this.ctrlrmh.createFormCariRumahPemilik();
+    }//GEN-LAST:event_ownerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -73,11 +121,12 @@ public class MenuSearchRumah extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuSearchRumah().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton homenum;
+    private javax.swing.JButton owner;
     // End of variables declaration//GEN-END:variables
 }

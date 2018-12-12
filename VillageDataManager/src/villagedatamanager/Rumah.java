@@ -11,7 +11,7 @@ package villagedatamanager;
  */
 public class Rumah {
     
-    public Rumah(String namaPass, int norumahPass, String alamatPass, int  notelpPass, int jmlpenghuniPass) {
+    public Rumah(String namaPass, int norumahPass, String alamatPass, String  notelpPass, int jmlpenghuniPass) {
         this.namapemilik = namaPass;
         this.norumah = norumahPass;
         this.alamat = alamatPass;
@@ -21,7 +21,7 @@ public class Rumah {
     private String namapemilik;
     private int norumah;
     private String alamat;
-    private int notelp;
+    private String notelp;
     private int jmlpenghuni;
     
     public String getNama() {
@@ -36,11 +36,30 @@ public class Rumah {
      return alamat;   
     }
     
-    public int getNoTelp() {
+    public String getNoTelp() {
      return notelp;   
     }
     
     public int getJmlPenghuni() {
      return jmlpenghuni;   
+    }
+    public void setNama(String arg) {
+        this.namapemilik = arg;
+    }
+        
+    public void setNoRumah(int arg) {
+        this.norumah = arg;
+    }
+    
+    public void setAlamat(String arg) {
+        this.alamat = arg;
+    }
+    
+    public void setNoTelp(String arg) {
+        this.notelp = arg;
+    }
+    
+    public void setJmlPenghuni(int arg) {
+        this.jmlpenghuni = arg;
     }
 }

@@ -67,7 +67,7 @@
                 <Column editable="true" title="Nomor Rumah" type="java.lang.Integer"/>
                 <Column editable="true" title="Nama Pemilik" type="java.lang.String"/>
                 <Column editable="true" title="Alamat" type="java.lang.String"/>
-                <Column editable="true" title="Nomor Telp" type="java.lang.Integer"/>
+                <Column editable="true" title="Nomor Telp" type="java.lang.String"/>
                 <Column editable="true" title="Jumlah Penghuni" type="java.lang.Integer"/>
               </Table>
             </Property>

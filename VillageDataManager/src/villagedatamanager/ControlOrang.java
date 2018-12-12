@@ -14,13 +14,16 @@ import java.util.List;
 public class ControlOrang {
     
     FormTambahOrang faddperson;
-    PopUpSuksesTambah popupsuksestambah;
+    PopUpMessage popupmessage;
     private static DatabaseDummy databasedummy;
     ViewAllTable viewalltable;
     MenuSearchOrang msearchorg;
     ViewSearchPersonMobile vsmobile;
     ViewSearchPersonName vsname;
     ViewSearchPersonHouseNum vshnum;
+    FormEditOrang feditorang;
+    PopUpYesNo popupdel;
+    
     
     public ControlOrang() {
         System.out.print("Constructed");
@@ -30,8 +33,8 @@ public class ControlOrang {
     
     public void tambahOrang(int id, int norumah, String notelp, String alamat, String nama)
     {
-        popupsuksestambah = new PopUpSuksesTambah();
-        JOptionPane.showMessageDialog(popupsuksestambah, "Berhasil ditambahkan");
+        popupmessage = new PopUpMessage();
+        JOptionPane.showMessageDialog(popupmessage, "Berhasil ditambahkan");
         System.out.print(id + " " + norumah);
         databasedummy.tambahOrang(id, norumah, notelp, alamat, nama);
     }
@@ -51,11 +54,14 @@ public class ControlOrang {
     {
         return databasedummy.cariOrangMobile(searcharg);
     }
-    public void cariOrangRumah()
+    public Orang cariOrangRumah(int searcharg)
     {
+        return databasedummy.cariOrangNoRumah(searcharg);
     }
     public void createFormSearchID()
     {
+        this.feditorang = new FormEditOrang(this);
+        this.feditorang.setVisible(true);
     }
     public void createFormSearchMobile()
     {
@@ -69,14 +75,22 @@ public class ControlOrang {
     }
     public void createFormSearchHome()
     {
-       // this.vshnum = new ViewSearchPersonHouseNum(this);
+        this.vshnum = new ViewSearchPersonHouseNum(this);
         this.vshnum.setVisible(true);
     }
-    public void editOrang()
+    public void editOrang(int id, String name, String telp, int homenum, String alamat)
     {
+        databasedummy.editOrang(id, name, telp, homenum, alamat);
     }
-    public void deleteOrang()
+    public void deleteOrang(int id)
     {
+        popupdel = new PopUpYesNo(this, id);
+        popupdel.setVisible(true);
+    }
+    public void deleteDataOrang(int id)
+    {
+        databasedummy.deleteOrang(id);
+        this.feditorang.clear();
     }
     public void tambahOrang()
     {
@@ -85,17 +99,13 @@ public class ControlOrang {
         faddperson = new FormTambahOrang(this);
         faddperson.setVisible(true);
     }
-    public void createMessage()
+    public void createMessage(String msg)
     {
-        this.popupsuksestambah = new PopUpSuksesTambah();
+        this.popupmessage = new PopUpMessage();
+        JOptionPane.showMessageDialog(popupmessage, msg);
     }
     public void tampilkanHasilPencarian()
     {
-    }
-    public void destroyMessage(PopUpSuksesTambah a)
-    {
-        a.dispose();
-        this.faddperson.empty();
     }
     
     public List<Orang> loadData() {

@@ -13,10 +13,14 @@ import java.util.List;
  */
 
 public class ControlRumah {
-    PopUpSuksesTambah popupsuksestambah;
+    PopUpMessage popupmessage;
     FormTambahRumahReal faddhome;
     private static DatabaseDummy databasedummy;
     ViewAllTableRumah viewalltable;
+    MenuSearchRumah menusearch;
+    ViewSearchHouseByOwner vsowner;
+    FormEditRumah feditrmh;
+    PopUpYesNo popupdel;
     
     public ControlRumah() {
         databasedummy = new DatabaseDummy();
@@ -24,10 +28,10 @@ public class ControlRumah {
         
     }
     
-    public void tambahRumah(int norumah, int notelp, String alamat, String namapemilik, int jmlhuni)
+    public void tambahRumah(int norumah, String notelp, String alamat, String namapemilik, int jmlhuni)
     {
-        popupsuksestambah = new PopUpSuksesTambah();
-        JOptionPane.showMessageDialog(popupsuksestambah, "Berhasil ditambahkan");
+        popupmessage = new PopUpMessage();
+        JOptionPane.showMessageDialog(popupmessage, "Berhasil ditambahkan");
         System.out.print(namapemilik + " " + norumah);
         databasedummy.tambahRumah(norumah, notelp, alamat, namapemilik, jmlhuni);
     }
@@ -36,17 +40,44 @@ public class ControlRumah {
         viewalltable = new ViewAllTableRumah(this);
         viewalltable.setVisible(true);
     }
-    public void cariRumahNomor()
+    public Rumah cariRumahNomor(int searcharg)
     {
+        return databasedummy.cariRumahNomor(searcharg);
     }
-    public void cariRumahPemilik()
+    public Rumah cariRumahPemilik(String searcharg)
     {
+        System.out.print("in control");
+        return databasedummy.cariRumahPemilik(searcharg);
     }
-    public void editRumah()
+    public void createFormCariRumahNomor()
     {
+        this.feditrmh = new FormEditRumah(this);
+        this.feditrmh.setVisible(true);
     }
-    public void deleteRumah()
+    public void createFormCariRumahPemilik()
     {
+        this.vsowner = new ViewSearchHouseByOwner(this);
+        this.vsowner.setVisible(true);
+        
+    }
+    public void editRumah(String name, int homenum, String alamat, String telp, int penghuni)
+    {
+        databasedummy.editRumah(name, homenum, alamat, telp, penghuni);
+    }
+    public void deleteRumah(int id)
+    {
+        popupdel = new PopUpYesNo(this, id);
+        popupdel.setVisible(true);
+    }
+    public void deletedataRumah(int id)
+    {
+        databasedummy.deleteRumah(id);
+        this.feditrmh.clear();
+    }
+    public void showMenuSearchRumah()
+    {
+        this.menusearch = new MenuSearchRumah(this);
+        this.menusearch.setVisible(true);
     }
     public void createForm()
     {
@@ -55,11 +86,10 @@ public class ControlRumah {
         faddhome.setVisible(true);
     
     }
-    public void createMessage()
+    public void createMessage(String msg)
     {
-    }
-    public void tampilkanHasilPencarian()
-    {
+        this.popupmessage = new PopUpMessage();
+        JOptionPane.showMessageDialog(popupmessage, msg);
     }
     
     public List<Rumah> loadData() {

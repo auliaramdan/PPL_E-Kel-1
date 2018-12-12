@@ -105,8 +105,15 @@ public class ViewSearchPersonMobile extends javax.swing.JFrame {
         }
         this.searcharg =  this.searchinput.getText();
         Orang toview = this.ctrlorg.cariOrangNoTelp(searcharg);
-        Object obj[] = {toview.getNama(), toview.getID(), toview.getAlamat(), toview.getNoRumah(), toview.getNoTelp()};
+        if(toview == null)
+        {
+            ctrlorg.createMessage("Data Tidak Ditemukan");
+        }
+        else
+        {
+        Object obj[] = {toview.getID(), toview.getNama(), toview.getAlamat(), toview.getNoTelp(), toview.getNoRumah()};
         dtm.addRow(obj);
+        }
 
     }//GEN-LAST:event_searchbtnMouseClicked
 

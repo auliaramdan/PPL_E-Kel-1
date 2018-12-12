@@ -43,4 +43,23 @@ public class Orang {
     public String getNoTelp() {
      return notelp;   
     }
+    public void setNama(String arg) {
+        this.nama = arg;
+    }
+    
+    public void setID(int arg) {
+        this.ID = arg;
+    }
+    
+    public void setNoRumah(int arg) {
+        this.norumah = arg;
+    }
+    
+    public void setAlamat(String arg) {
+        this.alamat = arg;
+    }
+    
+    public void setNoTelp(String arg) {
+        this.notelp = arg;
+    }
 }

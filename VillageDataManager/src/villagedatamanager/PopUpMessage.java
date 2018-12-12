@@ -9,16 +9,16 @@ package villagedatamanager;
  *
  * @author HP 14 - BS001TX
  */
-public class PopUpSuksesTambah extends javax.swing.JFrame {
+public class PopUpMessage extends javax.swing.JFrame {
 
     /**
-     * Creates new form PopUpSuksesTambah
+     * Creates new form PopUpMessage
      */
     private ControlOrang ctrlorg;
-    public PopUpSuksesTambah() {
+    public PopUpMessage() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,20 +61,20 @@ public class PopUpSuksesTambah extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PopUpSuksesTambah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PopUpMessage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PopUpSuksesTambah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PopUpMessage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PopUpSuksesTambah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PopUpMessage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PopUpSuksesTambah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PopUpMessage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PopUpSuksesTambah().setVisible(true);
+                new PopUpMessage().setVisible(true);
             }
         });
     }
