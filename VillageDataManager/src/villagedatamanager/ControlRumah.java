@@ -31,9 +31,10 @@ public class ControlRumah {
     public void tambahRumah(int norumah, String notelp, String alamat, String namapemilik, int jmlhuni)
     {
         popupmessage = new PopUpMessage();
-        JOptionPane.showMessageDialog(popupmessage, "Berhasil ditambahkan");
+        
         System.out.print(namapemilik + " " + norumah);
         databasedummy.tambahRumah(norumah, notelp, alamat, namapemilik, jmlhuni);
+        JOptionPane.showMessageDialog(popupmessage, "Berhasil ditambahkan");
     }
     public void tampilkanSemuaRumah()
     {

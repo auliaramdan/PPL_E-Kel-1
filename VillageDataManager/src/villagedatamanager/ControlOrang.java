@@ -34,9 +34,10 @@ public class ControlOrang {
     public void tambahOrang(int id, int norumah, String notelp, String alamat, String nama)
     {
         popupmessage = new PopUpMessage();
-        JOptionPane.showMessageDialog(popupmessage, "Berhasil ditambahkan");
+        
         System.out.print(id + " " + norumah);
         databasedummy.tambahOrang(id, norumah, notelp, alamat, nama);
+        JOptionPane.showMessageDialog(popupmessage, "Berhasil ditambahkan");
     }
     public void tampilkanSemuaOrang()
     {        
@@ -104,10 +105,6 @@ public class ControlOrang {
         this.popupmessage = new PopUpMessage();
         JOptionPane.showMessageDialog(popupmessage, msg);
     }
-    public void tampilkanHasilPencarian()
-    {
-    }
-    
     public List<Orang> loadData() {
         return databasedummy.getTableOrang();
     }

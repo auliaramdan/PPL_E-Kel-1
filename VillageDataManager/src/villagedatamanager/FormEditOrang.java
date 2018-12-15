@@ -16,9 +16,11 @@ public class FormEditOrang extends javax.swing.JFrame {
      */
     ControlOrang ctrlorg;
     int searcharg;
+    int state;
     public FormEditOrang(ControlOrang a) {
         initComponents();
         ctrlorg = a;
+        state = 0;
     }
 
     /**
@@ -169,6 +171,7 @@ public class FormEditOrang extends javax.swing.JFrame {
         alamatfield.setText("");
         idfield.setText("");
         telpfield.setText("");
+        state = 0;
     }//GEN-LAST:event_clearbtnMouseClicked
 
     private void searchbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbtnMouseClicked
@@ -177,6 +180,7 @@ public class FormEditOrang extends javax.swing.JFrame {
         Orang toview = ctrlorg.cariOrangID(searcharg);
         if(toview == null)
         {
+            ctrlorg.createMessage("Data Tidak Ditemukan");
             namefield.setText("");
             rumahfield.setText("");
             alamatfield.setText("");
@@ -190,10 +194,13 @@ public class FormEditOrang extends javax.swing.JFrame {
             telpfield.setText(toview.getNoTelp());
             alamatfield.setText(toview.getAlamat());
         }
+        state = 1;
     }//GEN-LAST:event_searchbtnMouseClicked
 
     private void savebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebtnMouseClicked
         // TODO add your handling code here:
+        if(state == 1)
+        {
         String newname = this.namefield.getText();
         String newalamat =  this.alamatfield.getText();
         int id = Integer.parseInt(this.idfield.getText());
@@ -201,11 +208,17 @@ public class FormEditOrang extends javax.swing.JFrame {
         String telp = this.telpfield.getText();
         ctrlorg.editOrang(id, newname, telp, homenum, newalamat);
         ctrlorg.createMessage("Data Tersimpan");
+        state = 1;
+        }
     }//GEN-LAST:event_savebtnMouseClicked
 
     private void deletebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebtnMouseClicked
         // TODO add your handling code here:
+        if(state == 1)
+        {
         ctrlorg.deleteOrang(searcharg);
+        state = 0;
+        }
     }//GEN-LAST:event_deletebtnMouseClicked
 
     /**
