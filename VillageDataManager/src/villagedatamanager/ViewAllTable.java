@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class ViewAllTable extends javax.swing.JFrame {
     
     ControlOrang ctrl;
+    List<Orang> data;
 
     /**
      * Creates new form ViewAllTable
@@ -104,8 +105,13 @@ public class ViewAllTable extends javax.swing.JFrame {
 
     private void reloadBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reloadBtnMouseClicked
         // TODO add your handling code here:
-        List<Orang> data = ctrl.loadData();
+        try{
+        data = ctrl.loadData();
+        }catch(Exception ex){
+            
+        }
         DefaultTableModel dtm = (DefaultTableModel) viewall.getModel();
+        dtm.setRowCount(0);
         for(Orang datum : data) {
          Object obj[] = {datum.getNama(), datum.getID(), datum.getAlamat(), datum.getNoRumah(), datum.getNoTelp()};
          

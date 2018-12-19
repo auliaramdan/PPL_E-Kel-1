@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package villagedatamanager;
-
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,6 +18,7 @@ public class ViewSearchPersonMobile extends javax.swing.JFrame {
      */
     private ControlOrang ctrlorg;
     private String searcharg;
+    List<Orang> data;
     public ViewSearchPersonMobile(ControlOrang ctrlorang) {
         this.ctrlorg = ctrlorang;
         initComponents();
@@ -44,11 +45,11 @@ public class ViewSearchPersonMobile extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nama", "No Telp", "No Rumah", "Alamat"
+                "ID", "Nama", "Alamat", "No Telp", "No Rumah"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -104,15 +105,22 @@ public class ViewSearchPersonMobile extends javax.swing.JFrame {
             dtm.setRowCount(0);
         }
         this.searcharg =  this.searchinput.getText();
-        Orang toview = this.ctrlorg.cariOrangNoTelp(searcharg);
-        if(toview == null)
+        try{
+        data = this.ctrlorg.cariOrangNoTelp(searcharg);
+        }catch(Exception ex){
+            
+        }
+        if(data == null)
         {
             ctrlorg.createMessage("Data Tidak Ditemukan");
         }
         else
         {
-        Object obj[] = {toview.getID(), toview.getNama(), toview.getAlamat(), toview.getNoTelp(), toview.getNoRumah()};
-        dtm.addRow(obj);
+            for(Orang toview : data) {
+                Object obj[] = {toview.getID(), toview.getNama(), toview.getAlamat(), toview.getNoTelp(), toview.getNoRumah()};
+         
+                dtm.addRow(obj);   
+                }
         }
 
     }//GEN-LAST:event_searchbtnMouseClicked

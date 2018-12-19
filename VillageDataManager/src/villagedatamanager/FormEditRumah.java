@@ -143,7 +143,13 @@ public class FormEditRumah extends javax.swing.JFrame {
     private void searchbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbtnMouseClicked
         // TODO add your handling code here:
         searcharg = Integer.parseInt(this.homenumfield.getText());
-        Rumah toview = ctrlrmh.cariRumahNomor(searcharg);
+        Rumah toview = null;
+        try{
+        toview = ctrlrmh.cariRumahNomor(searcharg);
+        }catch(Exception ex)
+        {
+            
+        }
         if(toview == null)
         {
             clear();
@@ -165,7 +171,11 @@ public class FormEditRumah extends javax.swing.JFrame {
         int penghuni = Integer.parseInt(penghunifield.getText());
         String telp = notelpfield.getText();
         String name = namefield.getText();
-        ctrlrmh.editRumah(name, homenum, alamat, telp, penghuni);
+        try{
+        ctrlrmh.editRumah(name, homenum, alamat, telp, penghuni, searcharg);
+        }catch(Exception ex){
+            
+        }
         ctrlrmh.createMessage("Data Tersimpan");
         
     }//GEN-LAST:event_savebtnMouseClicked

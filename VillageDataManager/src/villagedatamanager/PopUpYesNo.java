@@ -100,11 +100,19 @@ public class PopUpYesNo extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(ctrlrmh == null)
         {
+            try{
             ctrlorg.deleteDataOrang(arg);
+            }catch(Exception ex){
+                
+            }
         }
         else
         {
+            try{
             ctrlrmh.deletedataRumah(arg);
+            }catch(Exception ex){
+                
+            }
         }
         this.dispose();
     }//GEN-LAST:event_yesbtnMouseClicked

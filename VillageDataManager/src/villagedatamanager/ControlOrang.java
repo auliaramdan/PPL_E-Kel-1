@@ -7,6 +7,7 @@ package villagedatamanager;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
 /**
  *
  * @author HP 14 - BS001TX
@@ -31,7 +32,7 @@ public class ControlOrang {
         viewalltable = new ViewAllTable(this);
     }
     
-    public void tambahOrang(int id, int norumah, String notelp, String alamat, String nama)
+    public void tambahOrang(int id, int norumah, String notelp, String alamat, String nama ) throws SQLException
     {
         popupmessage = new PopUpMessage();
         
@@ -43,19 +44,19 @@ public class ControlOrang {
     {        
         viewalltable.setVisible(true);
     }
-    public Orang cariOrangID(int searcharg)
+    public Orang cariOrangID(int searcharg) throws SQLException
     {
         return databasedummy.cariOrangId(searcharg);
     }
-    public Orang cariOrangNama(String searcharg)
+    public List<Orang> cariOrangNama(String searcharg) throws SQLException
     {
         return databasedummy.cariOrangNama(searcharg);
     }
-    public Orang cariOrangNoTelp(String searcharg)
+    public List<Orang> cariOrangNoTelp(String searcharg) throws SQLException
     {
         return databasedummy.cariOrangMobile(searcharg);
     }
-    public Orang cariOrangRumah(int searcharg)
+    public List<Orang> cariOrangRumah(int searcharg) throws SQLException
     {
         return databasedummy.cariOrangNoRumah(searcharg);
     }
@@ -79,16 +80,16 @@ public class ControlOrang {
         this.vshnum = new ViewSearchPersonHouseNum(this);
         this.vshnum.setVisible(true);
     }
-    public void editOrang(int id, String name, String telp, int homenum, String alamat)
+    public void editOrang(int id, String name, String telp, int homenum, String alamat, int oldid) throws SQLException
     {
-        databasedummy.editOrang(id, name, telp, homenum, alamat);
+        databasedummy.editOrang(id, name, telp, homenum, alamat, oldid);
     }
     public void deleteOrang(int id)
     {
         popupdel = new PopUpYesNo(this, id);
         popupdel.setVisible(true);
     }
-    public void deleteDataOrang(int id)
+    public void deleteDataOrang(int id) throws SQLException
     {
         databasedummy.deleteOrang(id);
         this.feditorang.clear();
@@ -105,7 +106,7 @@ public class ControlOrang {
         this.popupmessage = new PopUpMessage();
         JOptionPane.showMessageDialog(popupmessage, msg);
     }
-    public List<Orang> loadData() {
+    public List<Orang> loadData() throws SQLException {
         return databasedummy.getTableOrang();
     }
     public void showSearchMenu()

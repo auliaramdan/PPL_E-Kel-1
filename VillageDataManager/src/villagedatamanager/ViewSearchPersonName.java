@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package villagedatamanager;
-
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,6 +18,7 @@ public class ViewSearchPersonName extends javax.swing.JFrame {
      */
     String searcharg;
     ControlOrang ctrlorg;
+    List<Orang> data;
     public ViewSearchPersonName(ControlOrang ctrlorang) {
         this.ctrlorg = ctrlorang;
         initComponents();
@@ -104,15 +105,22 @@ public class ViewSearchPersonName extends javax.swing.JFrame {
             dtm.setRowCount(0);
         }
         this.searcharg =  this.searchinput.getText();
-        Orang toview = this.ctrlorg.cariOrangNama(searcharg);
-        if(toview == null)
+        try{
+        data = this.ctrlorg.cariOrangNama(searcharg);
+        }catch(Exception ex){
+            
+        }
+        if(data == null)
         {
             ctrlorg.createMessage("Data Tidak Ditemukan");
         }
         else
         {
-        Object obj[] = {toview.getID(), toview.getNama(), toview.getAlamat(), toview.getNoTelp(), toview.getNoRumah()};
-        dtm.addRow(obj);
+            for(Orang toview : data) {
+                Object obj[] = {toview.getID(), toview.getNama(), toview.getAlamat(), toview.getNoTelp(), toview.getNoRumah()};
+         
+                dtm.addRow(obj);   
+                }
         }
     }//GEN-LAST:event_searchbtnMouseClicked
 

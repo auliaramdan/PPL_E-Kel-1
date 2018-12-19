@@ -6,6 +6,7 @@
 
 package villagedatamanager;
 
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,6 +18,7 @@ public class ViewSearchHouseByOwner extends javax.swing.JFrame {
     /** Creates new form ViewSearchHouseByOwner */
     ControlRumah ctrlrmh;
     String searcharg;
+    List<Rumah> data;
     public ViewSearchHouseByOwner(ControlRumah a) {
         initComponents();
         ctrlrmh = a;
@@ -104,16 +106,23 @@ public class ViewSearchHouseByOwner extends javax.swing.JFrame {
         this.searcharg =  this.searchinput.getText();
         System.out.print(searcharg);
         System.out.print("gonna search");
-        Rumah toview = this.ctrlrmh.cariRumahPemilik(searcharg);
+        try{
+        data = this.ctrlrmh.cariRumahPemilik(searcharg);
+        }catch(Exception ex){
+            
+        }
         System.out.print("returned");
-        if(toview == null)
+        if(data == null)
         {
             ctrlrmh.createMessage("Data Tidak Ditemukan");
         }
         else
         {
-            Object obj[] = {toview.getNama(), toview.getNoRumah(), toview.getAlamat(), toview.getJmlPenghuni(), toview.getNoTelp()};
-            dtm.addRow(obj);
+            for(Rumah toview : data) {
+                Object obj[] = {toview.getNama(), toview.getNoRumah(), toview.getAlamat(), toview.getJmlPenghuni(), toview.getNoTelp()};
+         
+                dtm.addRow(obj);   
+                }
         }
     }//GEN-LAST:event_searchbtnMouseClicked
 

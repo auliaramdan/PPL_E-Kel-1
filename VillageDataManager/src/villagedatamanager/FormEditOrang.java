@@ -177,7 +177,12 @@ public class FormEditOrang extends javax.swing.JFrame {
     private void searchbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbtnMouseClicked
         // TODO add your handling code here:
         this.searcharg =  Integer.parseInt(this.idfield.getText());
-        Orang toview = ctrlorg.cariOrangID(searcharg);
+        Orang toview = null;
+        try{
+        toview = ctrlorg.cariOrangID(searcharg);
+        }catch(Exception ex){
+            
+        }
         if(toview == null)
         {
             ctrlorg.createMessage("Data Tidak Ditemukan");
@@ -201,12 +206,17 @@ public class FormEditOrang extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(state == 1)
         {
+        System.out.print("startedit\n");
         String newname = this.namefield.getText();
         String newalamat =  this.alamatfield.getText();
         int id = Integer.parseInt(this.idfield.getText());
         int homenum = Integer.parseInt(this.rumahfield.getText());
         String telp = this.telpfield.getText();
-        ctrlorg.editOrang(id, newname, telp, homenum, newalamat);
+        try{
+        ctrlorg.editOrang(id, newname, telp, homenum, newalamat, searcharg);
+        }catch(Exception ex){
+            
+        }
         ctrlorg.createMessage("Data Tersimpan");
         state = 1;
         }

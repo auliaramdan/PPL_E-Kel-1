@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package villagedatamanager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class ControlRumah {
         
     }
     
-    public void tambahRumah(int norumah, String notelp, String alamat, String namapemilik, int jmlhuni)
+    public void tambahRumah(int norumah, String notelp, String alamat, String namapemilik, int jmlhuni) throws SQLException
     {
         popupmessage = new PopUpMessage();
         
@@ -41,11 +42,11 @@ public class ControlRumah {
         viewalltable = new ViewAllTableRumah(this);
         viewalltable.setVisible(true);
     }
-    public Rumah cariRumahNomor(int searcharg)
+    public Rumah cariRumahNomor(int searcharg) throws SQLException
     {
         return databasedummy.cariRumahNomor(searcharg);
     }
-    public Rumah cariRumahPemilik(String searcharg)
+    public List<Rumah> cariRumahPemilik(String searcharg) throws SQLException
     {
         System.out.print("in control");
         return databasedummy.cariRumahPemilik(searcharg);
@@ -61,16 +62,16 @@ public class ControlRumah {
         this.vsowner.setVisible(true);
         
     }
-    public void editRumah(String name, int homenum, String alamat, String telp, int penghuni)
+    public void editRumah(String name, int homenum, String alamat, String telp, int penghuni, int oldnum) throws SQLException
     {
-        databasedummy.editRumah(name, homenum, alamat, telp, penghuni);
+        databasedummy.editRumah(name, homenum, alamat, telp, penghuni, oldnum);
     }
     public void deleteRumah(int id)
     {
         popupdel = new PopUpYesNo(this, id);
         popupdel.setVisible(true);
     }
-    public void deletedataRumah(int id)
+    public void deletedataRumah(int id) throws SQLException
     {
         databasedummy.deleteRumah(id);
         this.feditrmh.clear();
@@ -93,7 +94,7 @@ public class ControlRumah {
         JOptionPane.showMessageDialog(popupmessage, msg);
     }
     
-    public List<Rumah> loadData() {
+    public List<Rumah> loadData() throws SQLException {
         return databasedummy.getTableRumah();
     }
 }

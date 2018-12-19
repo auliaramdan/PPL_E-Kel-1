@@ -179,7 +179,11 @@ public class FormTambahOrang extends javax.swing.JFrame {
         this.notelp = notelptextfield.getText();
         this.alamat = alamattextfield.getText();
         this.idorg = Integer.parseInt(idtextfield.getText());
+        try{
         controlorang.tambahOrang(this.idorg, this.norumah, this.notelp, this.alamat, this.namaorg);
+        }catch(Exception ex){
+            
+        }
         System.out.print(this.namaorg);
         namatextfield.setText("");
         norumahtextfield.setText("");

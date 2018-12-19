@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package villagedatamanager;
-
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,6 +18,7 @@ public class ViewSearchPersonHouseNum extends javax.swing.JFrame {
      */
     ControlOrang ctrlorg;
     int searcharg;
+    List<Orang> data;
     public ViewSearchPersonHouseNum(ControlOrang a) {
         this.ctrlorg = a;
         initComponents();
@@ -52,11 +53,11 @@ public class ViewSearchPersonHouseNum extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nama", "No Telp", "No Rumah", "Alamat"
+                "ID", "Nama", "Alamat", "No Telp", "No Rumah"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -117,15 +118,22 @@ public class ViewSearchPersonHouseNum extends javax.swing.JFrame {
             dtm.setRowCount(0);
         }
         this.searcharg =  Integer.parseInt(this.searchinput.getText());
-        Orang toview = this.ctrlorg.cariOrangRumah(searcharg);
-        if(toview == null)
+        try{
+        data = this.ctrlorg.cariOrangRumah(searcharg);
+        }catch(Exception ex){
+            
+        }
+        if(data == null)
         {
             ctrlorg.createMessage("Data Tidak Ditemukan");
         }
         else
         {
-        Object obj[] = {toview.getID(), toview.getNama(), toview.getAlamat(), toview.getNoTelp(), toview.getNoRumah()};
-        dtm.addRow(obj);
+            for(Orang toview : data) {
+                Object obj[] = {toview.getID(), toview.getNama(), toview.getAlamat(), toview.getNoTelp(), toview.getNoRumah()};
+         
+                dtm.addRow(obj);   
+                }
         }
         
     }//GEN-LAST:event_searchbtnMouseClicked

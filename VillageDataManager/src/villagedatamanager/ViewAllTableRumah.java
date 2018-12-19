@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 public class ViewAllTableRumah extends javax.swing.JFrame {
     
     private ControlRumah ctrl;
+    private List<Rumah> data;
 
     /**
      * Creates new form ViewAllTableRumah
@@ -105,8 +106,13 @@ public class ViewAllTableRumah extends javax.swing.JFrame {
 
     private void reloadbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reloadbtnMouseClicked
         // TODO add your handling code here:
-        List<Rumah> data = ctrl.loadData();
+        try{
+        data = ctrl.loadData();
+        }catch(Exception Ex){
+            
+        }
         DefaultTableModel dtm = (DefaultTableModel) viewall.getModel();
+        dtm.setRowCount(0);
         for(Rumah datum : data) {
          Object obj[] = {datum.getNoRumah(), datum.getNama(), datum.getAlamat(), datum.getNoTelp(), datum.getJmlPenghuni()};
          

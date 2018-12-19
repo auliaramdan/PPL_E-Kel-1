@@ -147,7 +147,11 @@ public class FormTambahRumahReal extends javax.swing.JFrame {
         this.notelp = notelptxt.getText();
         this.alamat = alamattxt.getText();
         this.jmlhuni = Integer.parseInt(jmlhunitxt.getText());
+        try{
         this.ctrlrumah.tambahRumah(this.norumah, this.notelp, this.alamat, this.namapemilik, this.jmlhuni);
+        }catch(Exception ex){
+            
+        }
         System.out.print(this.norumah);
         namapemiliktxt.setText("");
         norumahtxt.setText("");
