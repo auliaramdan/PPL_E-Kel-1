@@ -214,6 +214,7 @@ public class FormEditOrang extends javax.swing.JFrame {
         String telp = this.telpfield.getText();
         try{
         ctrlorg.editOrang(id, newname, telp, homenum, newalamat, searcharg);
+        searcharg = id;
         }catch(Exception ex){
             
         }

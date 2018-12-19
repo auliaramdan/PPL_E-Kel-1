@@ -173,6 +173,7 @@ public class FormEditRumah extends javax.swing.JFrame {
         String name = namefield.getText();
         try{
         ctrlrmh.editRumah(name, homenum, alamat, telp, penghuni, searcharg);
+        searcharg = homenum;
         }catch(Exception ex){
             
         }
